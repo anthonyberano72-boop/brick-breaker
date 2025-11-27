@@ -96,7 +96,7 @@ class BrickBreaker extends JFrame {
         String message = "";
         
         GameBoard() {
-            setBackground(Color.BLACK);
+            setBackground(Color.WHITE);
             setFocusable(true);
             addKeyListener(this);
 
