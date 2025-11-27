@@ -46,3 +46,24 @@ class BrickBreaker extends JFrame {
                 g.fillRect(x, y, width, height);
             }
         }
+
+        class Ball extends GameObject {
+            int dx = 4;
+            int dy = -4;
+
+            Ball(int x, int y) {
+                super(x, y, 15, 15);
+            }
+
+            void update() {
+                x += dx;
+                y += dy;
+            }
+
+            @Override
+            void draw(Graphics g) {
+                g.setColor(Color.BLUE);
+                g.fillOval(x, y, width, height);
+            }
+        }
+
