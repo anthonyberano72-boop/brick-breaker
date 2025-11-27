@@ -66,35 +66,7 @@ class BrickBreaker extends JFrame {
                 g.fillOval(x, y, width, height);
             }
         }
-        class Brick extends GameObject {
-            boolean destroyed = false;
-            Color color;
-
-            Brick(int x, int y) {
-                super(x, y, 60, 20);
-                color = new Color(
-                        (int)(Math.random() * 255),
-                        (int)(Math.random() * 255),
-                        (int)(Math.random() * 255)
-                );
-            }
-
-            @Override
-            void draw(Graphics g) {
-                if (!destroyed) {
-                    g.setColor(color);
-                    g.fillRect(x, y, width, height);
-                }
-            }
-        }
-
-        Paddle paddle;
-        Ball ball;
-        ArrayList<Brick> bricks;
-        Timer timer;
-        boolean running = true;
-        String message = "";
-
+        
         GameBoard() {
             setBackground(Color.BLACK);
             setFocusable(true);
