@@ -42,7 +42,7 @@ class BrickBreaker extends JFrame {
 
             @Override
             void draw(Graphics g) {
-                g.setColor(Color.BLUE);
+                g.setColor(Color.WHITE);
                 g.fillRect(x, y, width, height);
             }
         }
@@ -62,7 +62,7 @@ class BrickBreaker extends JFrame {
 
             @Override
             void draw(Graphics g) {
-                g.setColor(Color.BLUE);
+                g.setColor(Color.WHITE);
                 g.fillOval(x, y, width, height);
             }
         }
@@ -96,7 +96,7 @@ class BrickBreaker extends JFrame {
         String message = "";
         
         GameBoard() {
-            setBackground(Color.WHITE);
+            setBackground(Color.BLUE);
             setFocusable(true);
             addKeyListener(this);
 
