@@ -119,3 +119,21 @@ class BrickBreaker extends JFrame {
                 }
             }
         }
+
+         void restartGame() {
+            paddle = new Paddle(260, 450);
+            ball = new Ball(295, 300);
+            createBricks();
+            message = "";
+            running = true;
+            timer.start();
+            repaint();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (!running) return;
+            ball.update();
+            checkCollisions();
+            repaint();
+        }
