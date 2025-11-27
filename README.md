@@ -197,3 +197,37 @@ class BrickBreaker extends JFrame {
             }
         }
 
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (running) {
+                if (e.getKeyCode() == KeyEvent.VK_LEFT)
+                    paddle.moveLeft();
+
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+                    paddle.moveRight(getWidth());
+            }
+
+            if (!running && e.getKeyCode() == KeyEvent.VK_SPACE) {
+                restartGame();
+            }
+        }
+
+        @Override public void keyReleased(KeyEvent e) {}
+        @Override public void keyTyped(KeyEvent e) {}
+    }
+
+    public BrickBreaker() {
+        setTitle("Brick Breaker");
+        setSize(600, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        add(new GameBoard());
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new BrickBreaker();
+    }
+}
+
