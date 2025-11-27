@@ -175,3 +175,25 @@ class BrickBreaker extends JFrame {
                 message = "You Win!";
             }
         }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            paddle.draw(g);
+            ball.draw(g);
+
+            for (Brick b : bricks)
+                b.draw(g);
+
+            if (!running) {
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("Poppins", Font.BOLD, 30));
+                g.drawString(message, getWidth() / 2 - 70, getHeight() / 2);
+
+                g.setFont(new Font("Poppins", Font.PLAIN, 18));
+                g.drawString("Press SPACE to play again",
+                        getWidth() / 2 - 110, getHeight() / 2 + 40);
+            }
+        }
+
