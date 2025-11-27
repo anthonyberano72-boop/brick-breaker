@@ -137,3 +137,41 @@ class BrickBreaker extends JFrame {
             checkCollisions();
             repaint();
         }
+
+        void checkCollisions() {
+            if (ball.x <= 0 || ball.x + ball.width >= getWidth())
+                ball.dx *= -1;
+
+            if (ball.y <= 0)
+                ball.dy *= -1;
+
+            if (ball.y + ball.height >= getHeight()) {
+                running = false;
+                timer.stop();
+                message = "Game Over!";
+            }
+
+            if (ball.getBounds().intersects(paddle.getBounds())) {
+                ball.dy *= -1;
+                ball.y = paddle.y - ball.height;
+            }
+
+            boolean allDestroyed = true;
+
+            for (Brick b : bricks) {
+                if (!b.destroyed) {
+                    allDestroyed = false;
+
+                    if (ball.getBounds().intersects(b.getBounds())) {
+                        b.destroyed = true;
+                        ball.dy *= -1;
+                    }
+                }
+            }
+
+            if (allDestroyed) {
+                running = false;
+                timer.stop();
+                message = "You Win!";
+            }
+        }
