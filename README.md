@@ -23,3 +23,26 @@ class BrickBreaker extends JFrame {
 
             abstract void draw(Graphics g);
         }
+         class Paddle extends GameObject {
+            int speed = 8;
+
+            Paddle(int x, int y) {
+                super(x, y, 80, 15);
+            }
+
+            void moveLeft() {
+                x -= speed;
+                if (x < 0) x = 0;
+            }
+
+            void moveRight(int boardWidth) {
+                x += speed;
+                if (x + width > boardWidth) x = boardWidth - width;
+            }
+
+            @Override
+            void draw(Graphics g) {
+                g.setColor(Color.BLUE);
+                g.fillRect(x, y, width, height);
+            }
+        }
